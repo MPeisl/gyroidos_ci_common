@@ -90,7 +90,7 @@ def integrationTestX86(Map target = [:]) {
 	try {
 		// HSM-based tests need locking
 		// Negated to be defensive against bugs when adding new HSM types
-		if (!(target.buildtype in ['asan', 'ccmode', 'dev', 'production', 'pkcs11'])){
+		if (!(target.buildtype in ['asan', 'ccmode', 'dev', 'production'])){
 			echo "Acquiring lock '${target.buildtype}' for integration test"
 			lock(target.buildtype) {
 				runActualTest()
